@@ -1,0 +1,10 @@
+14:42:36 **** Incremental Build of configuration Debug for project TM1637-Driver ****
+make -j4 all 
+arm-none-eabi-size   TM1637-Driver.elf 
+   text	   data	    bss	    dec	    hex	filename
+   7128	     24	   1672	   8824	   2278	TM1637-Driver.elf
+Finished building: default.size.stdout
+ 
+
+14:42:36 Build Finished. 0 errors, 0 warnings. (took 474ms)
+
