@@ -11,25 +11,25 @@
 #if USE_BSP_TIMER
 
 
-static TIM_HandleTypeDef TIMER_HandleStructure[TIMER_ID_NB];	//Ce tableau contient les structures qui sont utilisées pour piloter chaque TIMER avec la librairie HAL.
+static TIM_HandleTypeDef TIMER_HandleStructure[TIMER_ID_NB];	//Ce tableau contient les structures qui sont utilisï¿½es pour piloter chaque TIMER avec la librairie HAL.
 static const TIM_TypeDef * instance_array[TIMER_ID_NB] = {TIM1, TIM2, TIM3, TIM4};
 static const IRQn_Type nvic_irq_array[TIMER_ID_NB] = {TIM1_UP_IRQn, TIM2_IRQn, TIM3_IRQn, TIM4_IRQn};
-#define TIM_1_2_3_4_5_CLK    	800000								//Fréquence des timers en Hz.
-#define NB_NSEC_PER_EVENT		(1000000000/TIM_1_2_3_4_5_CLK)		//Nombre de ns par évènement timer. Calculé à partir de la fréquence du timer.
+#define TIM_1_2_3_4_5_CLK    	800000								//Frï¿½quence des timers en Hz.
+#define NB_NSEC_PER_EVENT		(1000000000/TIM_1_2_3_4_5_CLK)		//Nombre de ns par ï¿½vï¿½nement timer. Calculï¿½ ï¿½ partir de la frï¿½quence du timer.
 
 
 /**
- * @brief	Initialisation et lancement du timer sélectionné.
+ * @brief	Initialisation et lancement du timer sï¿½lectionnï¿½.
  * 			Cette fonction lance de timer et le configure Il peut declencher une IT quand il y a debordement du timer.
  * @func 	void TIMER_run_us(void)
  * @param id du timer : cf timer_id_e
  * @param us temps en us code sur un 32bits non signe
  * @param enable_irq : TRUE : active les IT, FALSE ne les active pas. En cas d'activation des IT, l'utilisateur doit ecrire une fonction TIMERx_user_handler_it. Par defaut, ces fonctions ecrites dans ce fichier mais avec l'attribut weak (elles peuvent donc etre reecrites)
- * @post	Le timer et son horloge sont activés, ses interruptions autorisées, et son décompte lancé.
+ * @post	Le timer et son horloge sont activï¿½s, ses interruptions autorisï¿½es, et son dï¿½compte lancï¿½.
  */
 void TIMER_run_us(timer_id_e timer_id, uint32_t us, bool_e enable_irq)
 {
-	// On active l'horloge du timer demandé.
+	// On active l'horloge du timer demandï¿½.
 	switch(timer_id)
 	{
 		case TIMER1_ID:
@@ -52,20 +52,20 @@ void TIMER_run_us(timer_id_e timer_id, uint32_t us, bool_e enable_irq)
 
 
 	// Time base configuration
-	TIMER_HandleStructure[timer_id].Instance = (TIM_TypeDef*)instance_array[timer_id]; //On donne le timer en instance à notre gestionnaire (Handle)
+	TIMER_HandleStructure[timer_id].Instance = (TIM_TypeDef*)instance_array[timer_id]; //On donne le timer en instance ï¿½ notre gestionnaire (Handle)
 
-	//On détermine la fréquence des évènements comptés par le timer.
+	//On dï¿½termine la frï¿½quence des ï¿½vï¿½nements comptï¿½s par le timer.
 	uint32_t freq;
 	if(timer_id == TIMER1_ID)
 	{
-		//Fréquence du TIMER1 est PCLK2 lorsque APB2 Prescaler vaut 1, sinon : PCLK2*2
+		//Frï¿½quence du TIMER1 est PCLK2 lorsque APB2 Prescaler vaut 1, sinon : PCLK2*2
 		freq = HAL_RCC_GetPCLK2Freq();
 		if((RCC->CFGR & RCC_CFGR_PPRE2) >> 11 != RCC_HCLK_DIV1)
 			freq *= 2;
 	}
 	else
 	{
-		//Fréquence des TIMERS 2,3,4 est PCLK1 lorsque APB1 Prescaler vaut 1, sinon : PCLK1*2
+		//Frï¿½quence des TIMERS 2,3,4 est PCLK1 lorsque APB1 Prescaler vaut 1, sinon : PCLK1*2
 		freq = HAL_RCC_GetPCLK1Freq();
 		if((RCC->CFGR & RCC_CFGR_PPRE1) >> 8 != RCC_HCLK_DIV1)
 			freq *= 2;
@@ -82,8 +82,8 @@ void TIMER_run_us(timer_id_e timer_id, uint32_t us, bool_e enable_irq)
 			prescaler *= 2;
 			period /= 2;
 		}
-		TIMER_HandleStructure[timer_id].Init.Prescaler 	= prescaler - 1;	//le prescaler du timer doit être enregistré avec un offset de -1.
-		TIMER_HandleStructure[timer_id].Init.Period 	= (uint32_t)(period - 1);	//On compte de 0 à period-1
+		TIMER_HandleStructure[timer_id].Init.Prescaler 	= prescaler - 1;	//le prescaler du timer doit ï¿½tre enregistrï¿½ avec un offset de -1.
+		TIMER_HandleStructure[timer_id].Init.Period 	= (uint32_t)(period - 1);	//On compte de 0 ï¿½ period-1
 	}
 	else
 	{
@@ -94,14 +94,14 @@ void TIMER_run_us(timer_id_e timer_id, uint32_t us, bool_e enable_irq)
 	TIMER_HandleStructure[timer_id].Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
 	TIMER_HandleStructure[timer_id].Init.CounterMode = TIM_COUNTERMODE_UP;
 
-	// On applique les paramètres d'initialisation
+	// On applique les paramï¿½tres d'initialisation
 	HAL_TIM_Base_Init(&TIMER_HandleStructure[timer_id]);
 
 	if(enable_irq)
 	{
 		//acquittement des IT
 		clear_it_status(timer_id);
-		// On fixe les priorités des interruptions du timer PreemptionPriority = 0, SubPriority = 1 et on autorise les interruptions
+		// On fixe les prioritï¿½s des interruptions du timer PreemptionPriority = 0, SubPriority = 1 et on autorise les interruptions
 		HAL_NVIC_SetPriority(nvic_irq_array[timer_id] , 4,  1);
 		HAL_NVIC_EnableIRQ(nvic_irq_array[timer_id]);
 	}
@@ -237,7 +237,7 @@ void TIMER_enable_PWM(timer_id_e timer_id, uint16_t TIM_CHANNEL_x, uint16_t duty
  */
 void TIMER_set_duty(timer_id_e timer_id, uint16_t TIM_CHANNEL_x, uint16_t duty)
 {
-	duty = MIN(1000,duty);	//Ecretage... Le rapport cyclique ne peut donc pas être plus grand que 1000 !
+	duty = MIN(1000,duty);	//Ecretage... Le rapport cyclique ne peut donc pas ï¿½tre plus grand que 1000 !
 	duty = (uint16_t)((((uint32_t)(duty))*(TIMER_HandleStructure[timer_id].Init.Period+1))/1000U);
 
 	__HAL_TIM_SET_COMPARE(&TIMER_HandleStructure[timer_id], TIM_CHANNEL_x, duty);
@@ -260,18 +260,19 @@ void TIMER_set_period_with_same_duty_cycle(timer_id_e timer_id, uint16_t TIM_CHA
 /**
  * @brief	accesseur sur le handler.
  * @func 	void TIMER_get_phandler(void)
- *///Récupération de la structure du timer
+ *///Rï¿½cupï¿½ration de la structure du timer
 TIM_HandleTypeDef * TIMER_get_phandler(timer_id_e timer_id)
 {
 	return &TIMER_HandleStructure[timer_id];
 }
 
-//L'attribut weak indique à l'éditeur de liens, lors de la compilation, que cette fonction sera ignorée s'il en existe une autre portant le même nom. Elle sera choisie par défaut d'autre fonction homonyme.
-//Ainsi, si l'utilisateur définie sa propre TIMER1_user_handler_it_1ms(), elle sera appelée
+//L'attribut weak indique ï¿½ l'ï¿½diteur de liens, lors de la compilation, que cette fonction sera ignorï¿½e s'il en existe une autre portant le mï¿½me nom. Elle sera choisie par dï¿½faut d'autre fonction homonyme.
+//Ainsi, si l'utilisateur dï¿½finie sa propre TIMER1_user_handler_it_1ms(), elle sera appelï¿½e
 //Sinon, aucun message d'erreur n'indiquera que cette fonction n'existe pas !
 __weak void TIMER1_user_handler_it(void)
 {
-
+	HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+	TIMER_run_us( TIMER1_ID, 1000, 1);
 }
 
 __weak void TIMER2_user_handler_it(void)
@@ -292,50 +293,50 @@ __weak void TIMER4_user_handler_it(void)
 
 
 /**
- * @brief 	Routine d'interruption appelée AUTOMATIQUEMENT lorsque le timer 1 arrive a écheance.
+ * @brief 	Routine d'interruption appelï¿½e AUTOMATIQUEMENT lorsque le timer 1 arrive a ï¿½cheance.
  * @func 	void TIM1_IRQHandler(void)
- * @pre		Cette fonction NE DOIT PAS être appelée directement par l'utilisateur...
+ * @pre		Cette fonction NE DOIT PAS ï¿½tre appelï¿½e directement par l'utilisateur...
  * @post	Acquittement du flag d'interruption, et appel de la fonction de l'utilisateur : TIMER1_user_handler_it_1ms()
- * @note	Nous n'avons PAS le choix du nom de cette fonction, c'est comme ça qu'elle est nommée dans le fichier startup.s !
+ * @note	Nous n'avons PAS le choix du nom de cette fonction, c'est comme ï¿½a qu'elle est nommï¿½e dans le fichier startup.s !
  */
 void TIM1_UP_IRQHandler(void){
-	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER1_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levé...
+	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER1_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levï¿½...
 	{
 		__HAL_TIM_CLEAR_IT(&TIMER_HandleStructure[TIMER1_ID], TIM_IT_UPDATE);				//...On l'acquitte...
-		TIMER1_user_handler_it();									//...Et on appelle la fonction qui nous intéresse
+		TIMER1_user_handler_it();									//...Et on appelle la fonction qui nous intï¿½resse
 	}
 }
 
 void TIM2_IRQHandler(void){
-	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER2_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levé...
+	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER2_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levï¿½...
 	{
 		__HAL_TIM_CLEAR_IT(&TIMER_HandleStructure[TIMER2_ID], TIM_IT_UPDATE);				//...On l'acquitte...
-		TIMER2_user_handler_it();									//...Et on appelle la fonction qui nous intéresse
+		TIMER2_user_handler_it();									//...Et on appelle la fonction qui nous intï¿½resse
 	}
 }
 
 void TIM3_IRQHandler(void){
-	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER3_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levé...
+	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER3_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levï¿½...
 	{
 		__HAL_TIM_CLEAR_IT(&TIMER_HandleStructure[TIMER3_ID], TIM_IT_UPDATE);				//...On l'acquitte...
-		TIMER3_user_handler_it();									//...Et on appelle la fonction qui nous intéresse
+		TIMER3_user_handler_it();									//...Et on appelle la fonction qui nous intï¿½resse
 	}
 }
 
 void TIM4_IRQHandler(void){
-	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER4_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levé...
+	if(__HAL_TIM_GET_IT_SOURCE(&TIMER_HandleStructure[TIMER4_ID], TIM_IT_UPDATE) != RESET) 	//Si le flag est levï¿½...
 	{
 		__HAL_TIM_CLEAR_IT(&TIMER_HandleStructure[TIMER4_ID], TIM_IT_UPDATE);				//...On l'acquitte...
-		TIMER4_user_handler_it();									//...Et on appelle la fonction qui nous intéresse
+		TIMER4_user_handler_it();									//...Et on appelle la fonction qui nous intï¿½resse
 	}
 }
 
 /**
- * @brief	acquite les IT sur le timer sélectionné.
+ * @brief	acquite les IT sur le timer sï¿½lectionnï¿½.
  * 			
  * @func 	void clear_it_status(void)
  * @pre 	Le timer a ete initialise
- * @post	Le timer est acquité
+ * @post	Le timer est acquitï¿½
  */
 void clear_it_status(timer_id_e timer_id){
 	switch(timer_id)
@@ -363,7 +364,7 @@ void clear_it_status(timer_id_e timer_id){
  * 			
  * @func 	void TIMER_stop(timer_id_e timer_id)
  * @pre 	Le timer a ete initialise
- * @post	Le timer est desactivés
+ * @post	Le timer est desactivï¿½s
  */
 void TIMER_stop(timer_id_e timer_id){
 	switch(timer_id)

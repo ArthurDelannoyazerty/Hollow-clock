@@ -1,5 +1,6 @@
 void rotate(uint8_t step);
 bool_e readButton(void);
+void main_moteur(void);
 
 
 /*
