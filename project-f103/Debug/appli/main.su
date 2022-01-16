@@ -1,3 +1,2 @@
-main.c:24:5:main	16	static
-main.c:44:6:rotate	24	static
-main.c:65:8:readButton	8	static
+main.c:15:13:process_ms	8	static
+main.c:26:6:main	16	static

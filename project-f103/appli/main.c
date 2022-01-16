@@ -5,63 +5,37 @@
 #include "stm32f1_gpio.h"
 #include "macro_types.h"
 #include "systick.h"
+#include "stm32f1_timer.h"
 
-#define DELAYSTEP 1
 
 
-bool_e seq[8][4] = {
-		  {  LOW, HIGH, HIGH,  LOW},
-		  {  LOW,  LOW, HIGH,  LOW},
-		  {  LOW,  LOW, HIGH, HIGH},
-		  {  LOW,  LOW,  LOW, HIGH},
-		  { HIGH,  LOW,  LOW, HIGH},
-		  { HIGH,  LOW,  LOW,  LOW},
-		  { HIGH, HIGH,  LOW,  LOW},
-		  {  LOW, HIGH,  LOW,  LOW}
-		};
-uint16_t port[4] = {PIN_0, PIN_1, PIN_11, PIN_12};
 
-int main(void){
+
+//Routine d'interruption
+//a placer avant  : Systick_add_callback_function(&process_ms); (souvent dans init)
+static void process_ms(void){
+	static volatile uint16_t t=0;	//uint8_t max = 255 => on prend 16 bits pour aller jusqu'a 1000 = 1s
+	if(t>1000){
+		t=0;
+		HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+	}
+	else{
+		t++;
+	}
+}
+
+void main(){
 	HAL_Init();
 
-	BSP_GPIO_PinCfg(GPIO_A, PIN_0, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIO_A, PIN_1, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIO_A, PIN_11, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIO_A, PIN_12, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	//Initialisation du port en sortie
+	BSP_GPIO_PinCfg(LED_GREEN_GPIO, LED_GREEN_PIN, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
-	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
-
+	Systick_add_callback_function(&process_ms); //initialise process_ms
 
 	while(1){
-		if(!readButton()){	//si bouton appuyé -> le moteur tourne selon valeur (potentiometre non pas de valeur analogique!!) dans la mémoire -> DELAYSTEP
-			rotate(8);
-		}
+
 	}
 }
 
 
 
-void rotate(uint8_t step){
-	static uint8_t phase = 0;
-	uint8_t i;
-	uint8_t j;                         //i,j for loops
-	uint8_t delta = (step > 0) ? 1 : 7;   //?
-
-	step = (step > 0) ? step : -step;   //step set to positive
-	for(j = 0; j < step; j++) {         //tant qu'on a pas fait le nombre de pas a faire
-		phase = (phase + delta) % 8;
-		for(i = 0; i < 4; i++) {
-			HAL_GPIO_WritePin(GPIO_A, port[i], seq[phase][i]);
-		}
-		HAL_Delay(DELAYSTEP);
-	}
-	// power cut
-	for(i = 0; i < 4; i++) {
-		HAL_GPIO_WritePin(GPIO_A, port[i], LOW);
-	}
-
-}
-
-bool_e readButton(void){
-	return HAL_GPIO_ReadPin(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN);
-}

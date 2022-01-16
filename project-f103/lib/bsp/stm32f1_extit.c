@@ -15,7 +15,7 @@ static callback_extit_t callbacks[16] = {0};
 static uint16_t enables = 0;
 
 /*
- * @brief cette fonction permet de déclarer une fonction de callback, associée à un numéro de broche.
+ * @brief cette fonction permet de dï¿½clarer une fonction de callback, associï¿½e ï¿½ un numï¿½ro de broche.
  */
 void EXTIT_set_callback(callback_extit_t fun, uint8_t pin_number, bool_e enable)
 {
@@ -25,7 +25,7 @@ void EXTIT_set_callback(callback_extit_t fun, uint8_t pin_number, bool_e enable)
 }
 
 /*
- * @brief cette fonction autorise les interruptions externes correspondant au numéro de broche demandé.
+ * @brief cette fonction autorise les interruptions externes correspondant au numï¿½ro de broche demandï¿½.
  */
 void EXTIT_enable(uint8_t pin_number)
 {
@@ -48,7 +48,7 @@ void EXTIT_enable(uint8_t pin_number)
 }
 
 /*
- * @post : l'it correspondante ne sera désactivée que si aucune autre source partageant la même it n'est active.
+ * @post : l'it correspondante ne sera dï¿½sactivï¿½e que si aucune autre source partageant la mï¿½me it n'est active.
  */
 void EXTIT_disable(uint8_t pin_number)
 {
@@ -157,7 +157,7 @@ void EXTI9_5_IRQHandler(void)
 	EXTI_call(8);
 	EXTI_call(9);
 }
-
+/*
 void EXTI15_10_IRQHandler(void)
 {
 	EXTI_call(10);
@@ -167,5 +167,5 @@ void EXTI15_10_IRQHandler(void)
 	EXTI_call(14);
 	EXTI_call(15);
 }
-
+*/
 #endif

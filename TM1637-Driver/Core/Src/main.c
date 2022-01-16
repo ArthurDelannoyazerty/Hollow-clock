@@ -103,10 +103,17 @@ int main(void)
   HAL_GPIO_WritePin(SCLK_GPIO_Port, SCLK_Pin, GPIO_PIN_SET);
   HAL_GPIO_WritePin(SDO_GPIO_Port, SDO_Pin, GPIO_PIN_SET);
 
-  tm1637_DisplayHandle(7, CurrentDisplay);						//
+  tm1637_DisplayHandle(4, CurrentDisplay);						//
 
   Timer1Enable = ENABLE;										//Turn on systick based timer
   /* USER CODE END 2 */
+
+
+  uint8_t texte[] = "1603"; //ex txt 16h03
+  for(uint8_t i=0; i<4;i++){
+	  texte[i] = char2segments(texte[i]);
+  }
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -119,7 +126,7 @@ int main(void)
 	  }
 	  else
 	  {
-		  tm1637_Effect(250);
+		  tm1637_DisplayHandle(7, texte);
 	  }
     /* USER CODE END WHILE */
 

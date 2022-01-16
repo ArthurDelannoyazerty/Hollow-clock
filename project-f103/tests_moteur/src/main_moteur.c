@@ -6,7 +6,7 @@
 #include "macro_types.h"
 #include "systick.h"
 
-#define DELAYSTEP 100
+#define DELAYSTEP 1
 
 
 bool_e seq[8][4] = {
@@ -19,23 +19,22 @@ bool_e seq[8][4] = {
 		  { HIGH, HIGH,  LOW,  LOW},
 		  {  LOW, HIGH,  LOW,  LOW}
 		};
-uint16_t port[4] = {PIN_0, PIN_1, PIN_2, PIN_3};
+uint16_t port[4] = {PIN_0, PIN_1, PIN_11, PIN_12};
 
-int main(void){
+void main_moteur(){
 	HAL_Init();
 
 	BSP_GPIO_PinCfg(GPIO_A, PIN_0, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 	BSP_GPIO_PinCfg(GPIO_A, PIN_1, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIO_A, PIN_2, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-	BSP_GPIO_PinCfg(GPIO_A, PIN_3, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIO_A, PIN_11, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+	BSP_GPIO_PinCfg(GPIO_A, PIN_12, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 	BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
 
 
 	while(1){
 		if(!readButton()){	//si bouton appuyé -> le moteur tourne selon valeur (potentiometre non pas de valeur analogique!!) dans la mémoire -> DELAYSTEP
-			rotate(100);
-			HAL_Delay(DELAYSTEP);
+			rotate(8);
 		}
 	}
 }
