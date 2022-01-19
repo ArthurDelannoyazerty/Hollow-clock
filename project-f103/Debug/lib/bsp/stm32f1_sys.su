@@ -2,7 +2,7 @@ core_cm3.h:1762:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
 stm32f1_sys.c:41:6:HAL_MspInit	8	static
 stm32f1_sys.c:47:6:SYS_NVIC_PriorityGrouping	8	static
 stm32f1_sys.c:54:6:Delay_ms	16	static
-stm32f1_sys.c:98:6:SYS_ClockConfig	88	static
+stm32f1_sys.c:98:6:SYS_ClockConfig	72	static
 stm32f1_sys.c:165:6:SYS_la_fonction_qui_fou_la_merde	4	static,ignoring_inline_asm
 unistd.h:18:6:_exit	16	static
 stm32f1_sys.c:205:5:_open	12	static

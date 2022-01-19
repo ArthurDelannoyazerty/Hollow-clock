@@ -59,7 +59,6 @@ void rotate(uint8_t step){
 	for(i = 0; i < 4; i++) {
 		HAL_GPIO_WritePin(GPIO_A, port[i], LOW);
 	}
-
 }
 
 bool_e readButton(void){

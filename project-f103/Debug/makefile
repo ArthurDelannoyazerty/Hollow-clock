@@ -9,6 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include lib/middleware/fft/subdir.mk
 -include lib/middleware/MIDI/subdir.mk
 -include lib/middleware/subdir.mk
 -include lib/hal/src/Legacy/subdir.mk
@@ -47,6 +48,7 @@ RM := rm -rf
 -include lib/bsp/FingerprintReader/subdir.mk
 -include lib/bsp/ESP8266/subdir.mk
 -include lib/bsp/DriverLed_STP16CP05/subdir.mk
+-include lib/bsp/DS18B20/subdir.mk
 -include lib/bsp/DHT11/subdir.mk
 -include lib/bsp/CapacitiveKeyboard/subdir.mk
 -include lib/bsp/BH1750FVI/subdir.mk

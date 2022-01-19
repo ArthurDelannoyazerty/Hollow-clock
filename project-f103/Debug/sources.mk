@@ -25,6 +25,7 @@ lib/bsp/APDS9960 \
 lib/bsp/BH1750FVI \
 lib/bsp/CapacitiveKeyboard \
 lib/bsp/DHT11 \
+lib/bsp/DS18B20 \
 lib/bsp/DriverLed_STP16CP05 \
 lib/bsp/ESP8266 \
 lib/bsp/FingerprintReader \
@@ -64,5 +65,6 @@ lib/hal/src/Legacy \
 lib/hal/src \
 lib/middleware/MIDI \
 lib/middleware \
+lib/middleware/fft \
 lib \
 

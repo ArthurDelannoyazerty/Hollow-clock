@@ -1,5 +1,6 @@
 lib/bsp/MCP23017/mcp23017.o: ../lib/bsp/MCP23017/mcp23017.c \
  ../lib/bsp/MCP23017/mcp23017.h ../appli/config.h \
+ ../lib/bsp/macro_types.h ../lib/bsp/stm32f1_i2c.h \
  ../lib/bsp/macro_types.h ../lib/hal/inc/stm32f1xx_hal.h \
  ../lib/hal/inc/stm32f1xx_hal_conf.h ../lib/hal/inc/stm32f1xx_hal_rcc.h \
  ../lib/hal/inc/stm32f1xx_hal_def.h ../lib/CMSIS/device/stm32f1xx.h \
@@ -24,12 +25,15 @@ lib/bsp/MCP23017/mcp23017.o: ../lib/bsp/MCP23017/mcp23017.c \
  ../lib/hal/inc/stm32f1xx_hal_uart.h ../lib/hal/inc/stm32f1xx_hal_usart.h \
  ../lib/hal/inc/stm32f1xx_hal_wwdg.h ../lib/hal/inc/stm32f1xx_hal_pcd.h \
  ../lib/hal/inc/stm32f1xx_ll_usb.h ../lib/hal/inc/stm32f1xx_hal_pcd_ex.h \
- ../lib/hal/inc/stm32f1xx_hal_hcd.h ../lib/bsp/stm32f1_i2c.h \
- ../lib/bsp/macro_types.h
+ ../lib/hal/inc/stm32f1xx_hal_hcd.h
 
 ../lib/bsp/MCP23017/mcp23017.h:
 
 ../appli/config.h:
+
+../lib/bsp/macro_types.h:
+
+../lib/bsp/stm32f1_i2c.h:
 
 ../lib/bsp/macro_types.h:
 
@@ -118,7 +122,3 @@ lib/bsp/MCP23017/mcp23017.o: ../lib/bsp/MCP23017/mcp23017.c \
 ../lib/hal/inc/stm32f1xx_hal_pcd_ex.h:
 
 ../lib/hal/inc/stm32f1xx_hal_hcd.h:
-
-../lib/bsp/stm32f1_i2c.h:
-
-../lib/bsp/macro_types.h:
