@@ -105,6 +105,15 @@ uint8_t EXTI_gpiopin_to_pin_number(uint16_t GPIO_PIN_x)
 	return ret;
 }
 
+void EXTI_ack_it(uint8_t pin_number)
+{
+	uint16_t gpio_pin;
+	gpio_pin = (uint16_t)(1) << (uint16_t)(pin_number);
+	if(__HAL_GPIO_EXTI_GET_IT(gpio_pin))
+		__HAL_GPIO_EXTI_CLEAR_IT(gpio_pin);
+}
+
+
 /*
  * pin vaut GPIO_PIN_x
  */
@@ -122,6 +131,8 @@ static void EXTI_call(uint8_t pin_number)
 		}
 	}
 }
+
+
 
 void EXTI0_IRQHandler(void)
 {

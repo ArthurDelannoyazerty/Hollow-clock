@@ -271,8 +271,7 @@ TIM_HandleTypeDef * TIMER_get_phandler(timer_id_e timer_id)
 //Sinon, aucun message d'erreur n'indiquera que cette fonction n'existe pas !
 __weak void TIMER1_user_handler_it(void)
 {
-	HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
-	TIMER_run_us( TIMER1_ID, 1000, 1);
+
 }
 
 __weak void TIMER2_user_handler_it(void)

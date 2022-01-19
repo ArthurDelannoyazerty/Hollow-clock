@@ -1,12 +1,12 @@
 lib/bsp/tft_ili9341/stm32f1_fonts.o: \
  ../lib/bsp/tft_ili9341/stm32f1_fonts.c \
  ../lib/bsp/tft_ili9341/stm32f1_fonts.h ../appli/config.h \
- ../lib/bsp/macro_types.h ../lib/hal/inc/stm32f1xx_hal.h \
- ../lib/hal/inc/stm32f1xx_hal_conf.h ../lib/hal/inc/stm32f1xx_hal_rcc.h \
- ../lib/hal/inc/stm32f1xx_hal_def.h ../lib/CMSIS/device/stm32f1xx.h \
+ ../lib/bsp/macro_types.h ../lib/CMSIS/device/stm32f1xx.h \
  ../lib/CMSIS/device/stm32f103xb.h ../lib/CMSIS/core/core_cm3.h \
  ../lib/CMSIS/core/cmsis_version.h ../lib/CMSIS/core/cmsis_compiler.h \
  ../lib/CMSIS/core/cmsis_gcc.h ../lib/CMSIS/device/system_stm32f1xx.h \
+ ../lib/hal/inc/stm32f1xx_hal.h ../lib/hal/inc/stm32f1xx_hal_conf.h \
+ ../lib/hal/inc/stm32f1xx_hal_rcc.h ../lib/hal/inc/stm32f1xx_hal_def.h \
  ../lib/hal/inc/stm32f1xx_hal_rcc_ex.h \
  ../lib/hal/inc/stm32f1xx_hal_gpio.h \
  ../lib/hal/inc/stm32f1xx_hal_gpio_ex.h \
@@ -33,14 +33,6 @@ lib/bsp/tft_ili9341/stm32f1_fonts.o: \
 
 ../lib/bsp/macro_types.h:
 
-../lib/hal/inc/stm32f1xx_hal.h:
-
-../lib/hal/inc/stm32f1xx_hal_conf.h:
-
-../lib/hal/inc/stm32f1xx_hal_rcc.h:
-
-../lib/hal/inc/stm32f1xx_hal_def.h:
-
 ../lib/CMSIS/device/stm32f1xx.h:
 
 ../lib/CMSIS/device/stm32f103xb.h:
@@ -54,6 +46,14 @@ lib/bsp/tft_ili9341/stm32f1_fonts.o: \
 ../lib/CMSIS/core/cmsis_gcc.h:
 
 ../lib/CMSIS/device/system_stm32f1xx.h:
+
+../lib/hal/inc/stm32f1xx_hal.h:
+
+../lib/hal/inc/stm32f1xx_hal_conf.h:
+
+../lib/hal/inc/stm32f1xx_hal_rcc.h:
+
+../lib/hal/inc/stm32f1xx_hal_def.h:
 
 ../lib/hal/inc/stm32f1xx_hal_rcc_ex.h:
 

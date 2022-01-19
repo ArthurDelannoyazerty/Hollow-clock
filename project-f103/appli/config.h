@@ -1,4 +1,33 @@
 #include "macro_types.h"
+void init_code(void);
+void rotate(uint8_t step, bool_e clock);
+void main_moteur(void);
+void go_to(uint32_t ms, bool_e clock);
+
+void writeLED(bool_e b);
+
+uint32_t param(bool_e clock);
+void affiche_digit(uint8_t x, uint8_t y);
+
+bool_e readButton_G(void);
+bool_e readButton_D(void);
+uint8_t lecture_pot(bool_e vq);
+
+
+// Please tune the following value if the clock gains or loses.
+// Theoretically, standard of this value is 60000.
+#define MILLIS_PER_MIN 60100 // milliseconcs per a minute
+
+#define ROTATION_PERIOD_IN_MSEC 10000
+
+// Motor and clock parameters
+#define STEPS_PER_ROTATION 4096 // steps of a single rotation of motor
+#define RATIO 15 // minutes per a rotation
+
+//#define LAP 65536  // value to avoid overflow of long int
+
+// wait for a single step of stepper
+#define DELAYSTEP 1
 
 /*
  * config.h
@@ -9,8 +38,6 @@
 
 #ifndef CONFIG_H_
 #define CONFIG_H_
-#include "stm32f1xx_hal.h"
-
 
 #define LOW 0
 #define HIGH 1
@@ -19,8 +46,8 @@
 
 
 //Choix de la cible utilis�e.
-#define NUCLEO	1
-#define BLUEPILL 0
+#define NUCLEO	0
+#define BLUEPILL 1
 
 #define MY_BLUEPILL_IS_COUNTERFEIT	BLUEPILL
 
@@ -35,27 +62,30 @@
 	#define LED_GREEN_PIN		GPIO_PIN_5
 	#define BLUE_BUTTON_GPIO	GPIOC
 	#define BLUE_BUTTON_PIN 	GPIO_PIN_13
-	#define GPIO_A		GPIOA
-	#define GPIO_B 		GPIOB
-	#define PIN_0		GPIO_PIN_0	//pins moteur
-	#define PIN_1		GPIO_PIN_1
-	#define PIN_2		GPIO_PIN_2 	//NON
-	#define PIN_3		GPIO_PIN_3	//NON
-	#define PIN_11		GPIO_PIN_11
-	#define PIN_12		GPIO_PIN_12
+	#define GPIO_A				GPIOA
+	#define GPIO_MOTEUR 		GPIOA
+	#define GPIO_B 				GPIOB
+	#define PIN_1_MOTEUR		GPIO_PIN_0	//pins moteur
+	#define PIN_2_MOTEUR		GPIO_PIN_1
+	#define PIN_3_MOTEUR		GPIO_PIN_11
+	#define PIN_4_MOTEUR		GPIO_PIN_12
 	#if BLUEPILL
 		#error "Vous ne pouvez pas d�finir � la fois NUCLEO et BLUEPILL !"
 	#endif
 #endif
 #if BLUEPILL
-	#define GPIO_A		GPIOA
-	#define GPIO_B 		GPIOB
-	#define PIN_0		GPIO_PIN_0	//pins moteur
-	#define PIN_1		GPIO_PIN_1
-	#define PIN_2		GPIO_PIN_2
-	#define PIN_3		GPIO_PIN_3
-	#define PIN_BTN_D 	GPIO_PIN_6
-	#define PIN_BTN_G 	GPIO_PIN_7
+	#define BLUE_BUTTON_GPIO	GPIOC
+	#define BLUE_BUTTON_PIN 	GPIO_PIN_13
+	#define GPIO_A				GPIOA
+	#define GPIO_MOTEUR 		GPIOA
+	#define GPIO_B 				GPIOB
+	#define PIN_1_MOTEUR		GPIO_PIN_0	//pins moteur
+	#define PIN_2_MOTEUR		GPIO_PIN_1
+	#define PIN_3_MOTEUR		GPIO_PIN_11
+	#define PIN_4_MOTEUR		GPIO_PIN_12
+	#define GPIO_BOUTON			GPIOA
+	#define PIN_BOUTON_DROIT	GPIO_PIN_6
+	#define PIN_BOUTON_GAUCHE	GPIO_PIN_7
 #endif
 
 //Choisir les broches pour l'UART1, parmi ces deux possibilit�s :
@@ -88,7 +118,8 @@
 #define USE_BSP_TIMER			1 //Utilisation de stm32f1_timer.c/h
 
 
-#define USE_ADC					0
+#define ADC_SENSOR_CHANNEL		ADC_5
+#define USE_ADC					1
 	//Ces configurations permettent d'activer les entr�es analogiques souhait�es.
 	//16 entr�es analogiques peuvent �tre activ�es maximum.
 	//2 entr�es analogiques doivent �tre activ�es minimum. (Vref est un choix possible si vous utilisez une seule entr�e)
@@ -97,7 +128,7 @@
 	#define USE_AN2			0	//Broche correspondante : PA2	//Sur la Nucleo, cette broche n'est pas c�bl�e !
 	#define USE_AN3			0	//Broche correspondante : PA3	//Sur la Nucleo, cette broche n'est pas c�bl�e !
 	#define USE_AN4			0	//Broche correspondante : PA4
-	#define USE_AN5			0	//Broche correspondante : PA5
+	#define USE_AN5			1	//Broche correspondante : PA5
 	#define USE_AN6			0	//Broche correspondante : PA6
 	#define USE_AN7			0	//Broche correspondante : PA7
 	#define USE_AN8			0	//Broche correspondante : PB0
@@ -163,7 +194,7 @@
 #define USE_IR_EMITTER			0
 #define USE_IR_RECEIVER			0
 #define USE_IR_RECEIVER_NEC		0
-#define USE_MIDI				1
+#define USE_MIDI				0
 #define	USE_VL53L0				0
 #if USE_VL53L0
 	#define VL53L0X_I2C				I2C1

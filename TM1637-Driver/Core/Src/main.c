@@ -23,10 +23,24 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "tm1637.h"
+
+
+#include "macro_types.h"
+#include "stm32f1xx_hal.h"
+#include "stm32f1_uart.h"
+#include "stm32f1_sys.h"
+#include "stm32f1_gpio.h"
+#include "systick.h"
+#include "stm32f1_timer.h"
+
+#include "config.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+////////////////////////////////////a mettre dans le config.h quand librairies OK
+
+////////////////////////////////////fin a mettre
 
 /* USER CODE END PTD */
 
@@ -114,26 +128,158 @@ int main(void)
 	  texte[i] = char2segments(texte[i]);
   }
 
+  enum etats{
+	  CLOCK,
+	  TIMER,
+	  RAZ,
+	  PARAM_TIMER,
+	  PARAM_CLOCK
+  };
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-  while (1)
-  {
+  //initialisation
+  enum etats etat=CLOCK;
+  enum etats nominal = CLOCK;
 
-	  if(HAL_GetTick() >= 10000)
-	  {
-		  tm1637_DisplayClear();
-	  }
-	  else
-	  {
-		  tm1637_DisplayHandle(7, texte);
-	  }
-    /* USER CODE END WHILE */
 
-    /* USER CODE BEGIN 3 */
+  //init moteur
+  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_1_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_2_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_3_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_4_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+
+  bool_e seq[8][4] = {
+  		  {  LOW, HIGH, HIGH,  LOW},
+  		  {  LOW,  LOW, HIGH,  LOW},
+  		  {  LOW,  LOW, HIGH, HIGH},
+  		  {  LOW,  LOW,  LOW, HIGH},
+  		  { HIGH,  LOW,  LOW, HIGH},
+  		  { HIGH,  LOW,  LOW,  LOW},
+  		  { HIGH, HIGH,  LOW,  LOW},
+  		  {  LOW, HIGH,  LOW,  LOW}
+  		};
+  uint16_t port[4] = {PIN_0, PIN_1, PIN_11, PIN_12};
+  //fin init moteur
+
+  BSP_GPIO_PinCfg(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN, GPIO_MODE_INPUT,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
+
+  //Autorise la demande d'interruption correspondante à interrompre le processeur
+  NVIC_EnableIRQ(EXTI15_10_IRQn);
+
+
+
+
+  while (1){
+	  switch(etat){
+	  	 	 case CLOCK:
+	  	 		 //tourne horloge
+	  	 		 break;
+	  	 	 case TIMER:
+	  	 		 //tourne horloge du timer
+	  	 		 break;
+	  	 	 case RAZ:
+	  	 		 //remise a 0h00 (ou remettre a xhxx?)
+	  	 		 break;
+	  	 	case PARAM_TIMER:
+	  	 	     // activé avec interruption
+	  	 	     //code parametrer le timer (avec pot pour régler valeur, btn 1 pour passer heure->minute, et btn 2 pour valider (affichage avec afficheur numérique))
+	  	 		 param(0);
+	  	 		 etat = RAZ;
+	  	 	     break;
+	  	 	case PARAM_CLOCK:
+	  	 	     param(1);
+	  	 	     etat = TIMER;
+	  	 	     break;
+	  	 }
   }
-  /* USER CODE END 3 */
+
 }
+
+
+uint32_t param(bool_e clock){
+	uint8_t minutes  = 0;
+	uint8_t secondes = 0;
+	bool_e fini = 0;
+	bool_e min_sec = 0;		//= 0 <==> minutes 	/ = 1 <==> secondes
+
+	bool_e bouton_d = readButton_D();
+	bool_e ancien_bouton_d = bouton_d;
+	bool_e bouton_g = readButton_G();
+	bool_e ancien_bouton_g = bouton_d;
+
+	while(!fini){
+		if(!min_sec){//selection minutes
+			minutes = lecture_pot(0);
+			bouton_g = readButton_G();
+			if(bouton_g != ancien_bouton_g && bouton_g==1){	//si on appuie sur le bouton gauche
+				min_sec = 1;
+				ancien_bouton_g = bouton_g;
+			}
+		}
+		else{
+			secondes = lecture_pot(0);
+			if(bouton_g != ancien_bouton_g && bouton_g==1){	//si on appuie sur le bouton gauche
+				min_sec = 0;
+				ancien_bouton_g = bouton_g;
+			}
+		}
+		if(bouton_d != ancien_bouton_d && bouton_d==1){	//si on appuie sur le bouton droit
+			fini = 1;
+		}
+
+		ancien_bouton_g = bouton_g;
+		ancien_bouton_d = bouton_d;
+
+		//affichage selection minutes et secondes
+		affiche_digit(minutes, secondes);
+
+
+	}
+	uint32_t ms=0;
+	if(clock){		//si parametre horloge : heures + minutes
+		ms = ((minutes*60*60) + (secondes*60))*1000;
+	}
+	else{			//sinon timer = minutes + secondes
+		ms = ((minutes*60)+secondes)*1000;
+	}
+	return ms;		//retourne le nb de ms à mettre à l'horloge
+}
+
+void affiche_digit(uint8_t x, uint8_t y){
+	uint8_t texte[] = concatenate(x, y);	//TODO texte[] = "1603" pour 16h03
+	for(uint8_t i=0; i<4;i++){
+		texte[i] = char2segments(texte[i]);
+	}
+	tm1637_DisplayHandle(7, texte);
+}
+
+unsigned concatenate(unsigned x, unsigned y) {
+    unsigned pow = 10;
+    while(y >= pow)
+        pow *= 10;
+    return x * pow + y;
+}
+
+//lit bouton bleu
+bool_e readButton_G(void){
+	return HAL_GPIO_ReadPin(BLUE_BUTTON_GPIO, BLUE_BUTTON_PIN);//TODO changer en bouton gauche
+}
+
+//TODO ajouter bouton droite en lecture
+
+uint8_t lecture_pot(bool_e vq){
+	//TODO retourne valeur potentiomètre avec max 60 si vq=0 et max 24 si vq=1 (vq = 24)
+	return 0;
+}
+
+//Routine d'interruption
+//Cette fonction ne doit pas être appelée par l'utilisateur, elle le sera automatiquement par le processeur.
+void EXTI15_10_IRQHandler(){
+	//Acquittement du flag d'interruption
+	__HAL_GPIO_EXTI_CLEAR_IT(BLUE_BUTTON_PIN);
+	//code de l'utilisateur :
+
+}
+
 
 /**
   * @brief System Clock Configuration
