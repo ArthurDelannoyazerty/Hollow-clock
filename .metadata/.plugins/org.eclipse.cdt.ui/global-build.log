@@ -1,10 +1,9 @@
-23:15:29 **** Incremental Build of configuration Debug for project project-f103 ****
+11:37:00 **** Incremental Build of configuration Debug for project project-f103 ****
 make -j4 all 
 arm-none-eabi-gcc "../lib/middleware/fft/fft.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/fft/fft.d" -MT"lib/middleware/fft/fft.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/fft/fft.o"
 arm-none-eabi-gcc "../lib/middleware/MIDI/midi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/MIDI/midi.d" -MT"lib/middleware/MIDI/midi.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/MIDI/midi.o"
 arm-none-eabi-gcc "../lib/middleware/MIDI/usb_device.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/MIDI/usb_device.d" -MT"lib/middleware/MIDI/usb_device.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/MIDI/usb_device.o"
 arm-none-eabi-gcc "../lib/middleware/MIDI/usbd_midi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/MIDI/usbd_midi.d" -MT"lib/middleware/MIDI/usbd_midi.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/MIDI/usbd_midi.o"
-arm-none-eabi-gcc "../lib/middleware/MIDI/usbd_midi_if.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/MIDI/usbd_midi_if.d" -MT"lib/middleware/MIDI/usbd_midi_if.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/MIDI/usbd_midi_if.o"
 In file included from ../lib/middleware/MIDI/usbd_ioreq.h:29,
                  from ../lib/middleware/MIDI/usbd_midi.h:9,
                  from ../lib/middleware/MIDI/usbd_midi_if.h:6,
@@ -18,6 +17,17 @@ In file included from ../appli/config.h:1,
    56 |  #define MIN(a, b)    (((a) > (b)) ? (b) : (a))
       | 
 In file included from ../appli/config.h:1,
+                 from ../lib/middleware/MIDI/usbd_midi.c:3:
+../lib/bsp/macro_types.h:56: warning: "MIN" redefined
+   56 |  #define MIN(a, b)    (((a) > (b)) ? (b) : (a))
+      | 
+In file included from ../lib/middleware/MIDI/usbd_ioreq.h:29,
+                 from ../lib/middleware/MIDI/usbd_midi.h:9,
+                 from ../lib/middleware/MIDI/usbd_midi.c:1:
+../lib/middleware/MIDI/usbd_def.h:277: note: this is the location of the previous definition
+  277 | #define MIN(a, b)  (((a) < (b)) ? (a) : (b))
+      | 
+In file included from ../appli/config.h:1,
                  from ../lib/middleware/MIDI/usbd_midi_if.h:5,
                  from ../lib/middleware/MIDI/usb_device.c:2:
 ../lib/bsp/macro_types.h:56: warning: "MIN" redefined
@@ -29,17 +39,7 @@ In file included from ../lib/middleware/MIDI/usbd_ioreq.h:29,
 ../lib/middleware/MIDI/usbd_def.h:277: note: this is the location of the previous definition
   277 | #define MIN(a, b)  (((a) < (b)) ? (a) : (b))
       | 
-In file included from ../appli/config.h:1,
-                 from ../lib/middleware/MIDI/usbd_midi.c:3:
-../lib/bsp/macro_types.h:56: warning: "MIN" redefined
-   56 |  #define MIN(a, b)    (((a) > (b)) ? (b) : (a))
-      | 
-In file included from ../lib/middleware/MIDI/usbd_ioreq.h:29,
-                 from ../lib/middleware/MIDI/usbd_midi.h:9,
-                 from ../lib/middleware/MIDI/usbd_midi.c:1:
-../lib/middleware/MIDI/usbd_def.h:277: note: this is the location of the previous definition
-  277 | #define MIN(a, b)  (((a) < (b)) ? (a) : (b))
-      | 
+arm-none-eabi-gcc "../lib/middleware/MIDI/usbd_midi_if.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/middleware/MIDI/usbd_midi_if.d" -MT"lib/middleware/MIDI/usbd_midi_if.o"  -mfloat-abi=soft -mthumb -o "lib/middleware/MIDI/usbd_midi_if.o"
 In file included from ../lib/middleware/MIDI/usbd_ioreq.h:29,
                  from ../lib/middleware/MIDI/usbd_midi.h:9,
                  from ../lib/middleware/MIDI/usbd_midi_if.h:6,
@@ -165,6 +165,7 @@ arm-none-eabi-gcc "../lib/bsp/BH1750FVI/bh1750fvi.c" -mcpu=cortex-m3 -std=gnu11 
 arm-none-eabi-gcc "../lib/bsp/APDS9960/apds9960.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/APDS9960/apds9960.d" -MT"lib/bsp/APDS9960/apds9960.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/APDS9960/apds9960.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_adc.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_adc.d" -MT"lib/bsp/stm32f1_adc.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_adc.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_extit.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_extit.d" -MT"lib/bsp/stm32f1_extit.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_extit.o"
+arm-none-eabi-gcc "../lib/bsp/stm32f1_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_flash.d" -MT"lib/bsp/stm32f1_flash.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_flash.o"
 In file included from ../appli/config.h:1,
                  from ../lib/bsp/stm32f1_extit.c:8:
 ../lib/bsp/stm32f1_extit.c: In function 'EXTIT_enable':
@@ -193,7 +194,6 @@ In file included from ../appli/config.h:1,
 ../lib/bsp/stm32f1_extit.c:123:13: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
   123 |  gpio_pin = (uint16_t)(1) << (uint16_t)(pin_number);
       |             ^
-arm-none-eabi-gcc "../lib/bsp/stm32f1_flash.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_flash.d" -MT"lib/bsp/stm32f1_flash.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_flash.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_i2c.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_i2c.d" -MT"lib/bsp/stm32f1_i2c.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_i2c.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_motorDC.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_motorDC.d" -MT"lib/bsp/stm32f1_motorDC.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_motorDC.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_pwm.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_pwm.d" -MT"lib/bsp/stm32f1_pwm.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_pwm.o"
@@ -203,6 +203,10 @@ arm-none-eabi-gcc "../lib/bsp/stm32f1_spi.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DST
 arm-none-eabi-gcc "../lib/bsp/stm32f1_sys.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_sys.d" -MT"lib/bsp/stm32f1_sys.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_sys.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_timer.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_timer.d" -MT"lib/bsp/stm32f1_timer.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_timer.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1_uart.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_uart.d" -MT"lib/bsp/stm32f1_uart.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_uart.o"
+../lib/bsp/stm32f1_sys.c: In function 'HAL_MspInit':
+../lib/bsp/stm32f1_sys.c:43:2: warning: implicit declaration of function 'BSP_GPIO_Enable' [-Wimplicit-function-declaration]
+   43 |  BSP_GPIO_Enable();   //Activation des périphériques GPIO
+      |  ^~~~~~~~~~~~~~~
 In file included from ../lib/hal/inc/stm32f1xx_hal_conf.h:329,
                  from ../lib/hal/inc/stm32f1xx_hal.h:30,
                  from ../lib/bsp/stm32f1_timer.h:10,
@@ -231,10 +235,6 @@ In file included from ../lib/hal/inc/stm32f1xx_hal_conf.h:329,
 ../lib/bsp/stm32f1_timer.c:148:26: warning: implicit declaration of function 'BSP_GPIO_PinCfg' [-Wimplicit-function-declaration]
   148 |      case TIM_CHANNEL_1: BSP_GPIO_PinCfg((remap)?GPIOA:GPIOB,  (remap)?GPIO_PIN_7:GPIO_PIN_13,  GPIO_MODE_AF_PP, GPIO_NOPULL, GPIO_SPEED_FREQ_HIGH); break;
       |                          ^~~~~~~~~~~~~~~
-../lib/bsp/stm32f1_sys.c: In function 'HAL_MspInit':
-../lib/bsp/stm32f1_sys.c:43:2: warning: implicit declaration of function 'BSP_GPIO_Enable' [-Wimplicit-function-declaration]
-   43 |  BSP_GPIO_Enable();   //Activation des périphériques GPIO
-      |  ^~~~~~~~~~~~~~~
 arm-none-eabi-gcc "../lib/bsp/stm32f1_weak_it.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1_weak_it.d" -MT"lib/bsp/stm32f1_weak_it.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1_weak_it.o"
 arm-none-eabi-gcc "../lib/bsp/stm32f1xx_nucleo.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"lib/bsp/stm32f1xx_nucleo.d" -MT"lib/bsp/stm32f1xx_nucleo.o"  -mfloat-abi=soft -mthumb -o "lib/bsp/stm32f1xx_nucleo.o"
 arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
@@ -242,42 +242,56 @@ arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DN
 ../lib/bsp/stm32f1xx_nucleo.c:748:45: warning: unused parameter 'hadc' [-Wunused-parameter]
   748 | static void ADCx_MspInit(ADC_HandleTypeDef *hadc)
       |                          ~~~~~~~~~~~~~~~~~~~^~~~
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  217 |  if(m= ++ancienM){
+      |     ^
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c:222:5: warning: suggest parentheses around assignment used as truth value [-Wparentheses]
+  222 |  if(h= ++ancienH){ //rajout step car imprecision -> +4step/heures
+      |     ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
 ../appli/main.c: In function 'param':
-../appli/main.c:247:10: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
-  247 |     ms = ((minutes*60*60) + (secondes*60))*1000;
-      |          ^
-../appli/main.c:250:10: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
-  250 |     ms = ((minutes*60)+secondes)*1000;
-      |          ^
-../appli/main.c: In function 'go_to':
-../appli/main.c:264:9: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
-  264 |  rotate(step,clock);
-      |         ^~~~
+../appli/main.c:295:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  295 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
 ../appli/main.c: In function 'affiche_digit':
-../appli/main.c:303:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
-  303 |    texte[0] = char2segments(x/10+'0');
+../appli/main.c:362:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  362 |    texte[0] = char2segments(x/10+'0');
       |                             ~~~~^~~~
-../appli/main.c:304:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
-  304 |    texte[1] = char2segments(x%10+'0');
+../appli/main.c:363:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  363 |    texte[1] = char2segments(x%10+'0');
       |                             ~~~~^~~~
-../appli/main.c:305:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
-  305 |    texte[2] = char2segments(y/10+'0');
+../appli/main.c:364:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  364 |    texte[2] = char2segments(y/10+'0');
       |                             ~~~~^~~~
-../appli/main.c:306:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
-  306 |    texte[3] = char2segments(y/10+'0');
+../appli/main.c:365:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  365 |    texte[3] = char2segments(y%10+'0');
       |                             ~~~~^~~~
 ../appli/main.c: In function 'lecture_pot':
-../appli/main.c:314:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
-  314 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+../appli/main.c:386:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  386 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
       |           ^~~~~~~~~~~~
-../appli/main.c:317:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
-  317 |   valeur = valeur*24/4028;
+../appli/main.c:389:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  389 |   valeur = valeur*24/4028;
       |            ^~~~~~
-../appli/main.c:320:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
-  320 |   valeur = valeur*60/4028;
+../appli/main.c:392:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  392 |   valeur = valeur*60/4028;
       |            ^~~~~~
-../appli/main.c:322:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
-  322 |  return valeur;
+../appli/main.c:394:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  394 |  return valeur;
       |         ^~~~~~
 arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 Finished building target: project-f103.elf
@@ -286,7 +300,428 @@ arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
 arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
 arm-none-eabi-size   project-f103.elf 
    text	   data	    bss	    dec	    hex	filename
-  49280	   2668	   3144	  55092	   d734	project-f103.elf
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+11:37:58 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+11:38:16 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+11:40:48 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+11:41:03 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+11:44:24 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  217 |  if(m== ancienM+1){
+      |      ^~
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:295:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  295 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:362:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  362 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:363:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  363 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:364:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  364 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:365:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  365 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:386:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  386 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:389:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  389 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:392:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  392 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:394:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  394 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49920	   2668	   3176	  55764	   d9d4	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+11:50:16 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  217 |  if(m== ancienM+1){
+      |      ^~
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:296:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  296 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c:301:7: warning: conversion from 'int' to 'uint16_t' {aka 'volatile short unsigned int'} may change value [-Wconversion]
+  301 |     t=(minutes*360000)+(secondes*60000);
+      |       ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:366:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  366 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:367:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  367 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:368:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  368 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:369:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  369 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:390:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  390 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:393:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  393 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:396:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  396 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:398:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  398 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49984	   2668	   3176	  55828	   da14	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+11:53:47 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  217 |  if(m== ancienM+1){
+      |      ^~
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:296:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  296 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:367:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  367 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:368:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  368 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:369:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  369 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:370:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  370 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:391:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  391 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:394:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  394 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:397:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  397 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:399:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  399 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+11:56:25 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  217 |  if(m>ancienM+1){
+      |      ^
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:296:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  296 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:367:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  367 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:368:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  368 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:369:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  369 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:370:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  370 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:391:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  391 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:394:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  394 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:397:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  397 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:399:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  399 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+12:01:26 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:210:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  210 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:217:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  217 |  if(m>ancienM+1){
+      |      ^
+../appli/main.c:219:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  219 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:234:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:234:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  234 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:296:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  296 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:367:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  367 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:368:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  368 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:369:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  369 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:370:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  370 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:391:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  391 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:394:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  394 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:397:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  397 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:399:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  399 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49952	   2668	   3176	  55796	   d9f4	project-f103.elf
+Finished building: default.size.stdout
+ 
+Finished building: project-f103.bin
+ 
+Finished building: project-f103.list
+ 
+12:04:55 **** Incremental Build of configuration Debug for project project-f103 ****
+make -j4 all 
+arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
+../appli/main.c: In function 'remise_heure':
+../appli/main.c:212:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  212 |  go_to(t+(m*60000)+(h*360000),1);
+      |                   ^
+../appli/main.c: In function 'clock_nominal':
+../appli/main.c:219:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  219 |  if(m>ancienM+1){
+      |      ^
+../appli/main.c:221:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  221 |   affiche_digit(h,m);
+      |                   ^
+../appli/main.c: In function 'timer_nominal':
+../appli/main.c:236:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  236 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                  ~~~~~~~~~~~^~~~~
+../appli/main.c:236:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  236 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+      |                                   ~~~~~~~~~~~^~~~~~
+../appli/main.c: In function 'param':
+../appli/main.c:298:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
+  298 |    ms = ((minutes*60*60) + (secondes*60))*1000;
+      |         ^
+../appli/main.c: In function 'affiche_digit':
+../appli/main.c:369:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  369 |    texte[0] = char2segments(x/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:370:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  370 |    texte[1] = char2segments(x%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:371:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  371 |    texte[2] = char2segments(y/10+'0');
+      |                             ~~~~^~~~
+../appli/main.c:372:33: warning: conversion from 'int' to 'char' may change value [-Wconversion]
+  372 |    texte[3] = char2segments(y%10+'0');
+      |                             ~~~~^~~~
+../appli/main.c: In function 'lecture_pot':
+../appli/main.c:393:11: warning: conversion to 'uint16_t' {aka 'short unsigned int'} from 'int16_t' {aka 'short int'} may change the sign of the result [-Wsign-conversion]
+  393 |  valeur = ADC_getValue(ADC_SENSOR_CHANNEL);
+      |           ^~~~~~~~~~~~
+../appli/main.c:396:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  396 |   valeur = valeur*24/4028;
+      |            ^~~~~~
+../appli/main.c:399:12: warning: conversion from 'int' to 'uint16_t' {aka 'short unsigned int'} may change value [-Wconversion]
+  399 |   valeur = valeur*60/4028;
+      |            ^~~~~~
+../appli/main.c:401:9: warning: conversion from 'uint16_t' {aka 'short unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  401 |  return valeur;
+      |         ^~~~~~
+arm-none-eabi-gcc -o "project-f103.elf" @"objects.list"  -lc -lrdimon -mcpu=cortex-m3 -T"..\lib\LinkerScript.ld" -Wl,-Map="project-f103.map" -Wl,--gc-sections -static -Wl,--start-group -lc -lrdimon -Wl,--end-group -u_printf_float -specs=rdimon.specs  -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: project-f103.elf
+ 
+arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
+arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
+arm-none-eabi-size   project-f103.elf 
+   text	   data	    bss	    dec	    hex	filename
+  49984	   2668	   3176	  55828	   da14	project-f103.elf
 Finished building: default.size.stdout
  
 Finished building: project-f103.bin
