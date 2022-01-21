@@ -1,6 +1,6 @@
 #include "macro_types.h"
 void init_code(void);
-void rotate(uint8_t step, bool_e clock);
+void rotate(uint32_t step, bool_e clock);
 void main_moteur(void);
 void go_to(uint32_t ms, bool_e clock);
 
@@ -8,11 +8,15 @@ void writeLED(bool_e b);
 
 uint32_t param(bool_e clock);
 void affiche_digit(uint8_t x, uint8_t y);
+void affiche_debug(void);
 
 bool_e readButton_G(void);
 bool_e readButton_D(void);
 uint8_t lecture_pot(bool_e vq);
 
+void clock_nominal(void);
+void timer_nominal(void);
+void remise_heure(void);
 
 // Please tune the following value if the clock gains or loses.
 // Theoretically, standard of this value is 60000.
@@ -81,8 +85,8 @@ uint8_t lecture_pot(bool_e vq);
 	#define GPIO_B 				GPIOB
 	#define PIN_1_MOTEUR		GPIO_PIN_0	//pins moteur
 	#define PIN_2_MOTEUR		GPIO_PIN_1
-	#define PIN_3_MOTEUR		GPIO_PIN_11
-	#define PIN_4_MOTEUR		GPIO_PIN_12
+	#define PIN_3_MOTEUR		GPIO_PIN_2
+	#define PIN_4_MOTEUR		GPIO_PIN_3
 	#define GPIO_BOUTON			GPIOA
 	#define PIN_BOUTON_DROIT	GPIO_PIN_6
 	#define PIN_BOUTON_GAUCHE	GPIO_PIN_7

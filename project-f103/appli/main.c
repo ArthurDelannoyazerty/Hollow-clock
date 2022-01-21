@@ -90,12 +90,26 @@ bool_e seq[8][4] = {
 uint16_t port_clock[4] = {PIN_1_MOTEUR, PIN_2_MOTEUR, PIN_3_MOTEUR, PIN_4_MOTEUR};
 uint16_t port_timer[4] = {PIN_4_MOTEUR, PIN_3_MOTEUR, PIN_2_MOTEUR, PIN_1_MOTEUR}; 	//tourne à l'envers
 
-  //a placer avant  : Systick_add_callback_function(&process_ms); (souvent dans init)
+
+static volatile uint16_t t=0;	//uint8_t max = 255 => on prend 16 bits pour aller jusqu'a 1000 = 1s
+uint32_t m= 0;					//compte les minutes
+uint8_t  h= 0;					//compte les heures (4step en + par heure)
+bool_e   am=0;					//1 si 0-12h; 0 si 12-24h
+uint32_t t_timer=0;
+uint32_t t_timerF=0;
 static void process_ms(void){
-  	static volatile uint16_t t=0;	//uint8_t max = 255 => on prend 16 bits pour aller jusqu'a 1000 = 1s
-  	if(t==1000){
+  	if(t==60000){
   		t=0;
-  		//HAL_GPIO_TogglePin(LED_GREEN_GPIO, LED_GREEN_PIN);
+  		m++;
+  		if(m%60==0){
+  			h++;
+  			if(h==12){
+  				am=0;
+  			}
+  			if(h==0){
+  				am=1;
+  			}
+  		}
   	}
   	else{
 		t++;
@@ -144,10 +158,6 @@ static void process_ms(void){
   	  /* USER CODE END 2 */
 
 
-
-
-
-
   	  ADC_init();
 
   	  //init moteur
@@ -155,6 +165,9 @@ static void process_ms(void){
   	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_2_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
   	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_3_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
   	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_4_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+
+  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_DROIT, GPIO_MODE_IT_FALLING,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_GAUCHE, GPIO_MODE_IT_FALLING,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
 
   	  //fin init moteur
@@ -170,9 +183,13 @@ static void process_ms(void){
   		  switch(etat){
   		  	 	 case CLOCK:
   		  	 		 //tourne horloge
+  		  	 		 clock_nominal();
   		  	 		 break;
   		  	 	 case TIMER:
   		  	 		 //tourne horloge du timer
+  		  	 		 timer_nominal();
+  		  	 		 remise_heure();
+  		  	 		 etat=CLOCK;
   		  	 		 break;
   		  	 	 case RAZ:
   		  	 		 //remise a 0h00 (ou remettre a xhxx?)
@@ -192,17 +209,50 @@ static void process_ms(void){
 }
 
 
+void remise_heure(void){
+	go_to(t+(m*60000)+(h*360000),1);
+}
 
+void clock_nominal(){
+	static uint16_t ancienM=0;
+	static uint8_t ancienH=0;
+
+	if(m>ancienM+1){
+		rotate(273,1);
+		affiche_digit(h,m);
+		ancienM++;
+	}
+	if(h>ancienH+1){	//rajout step car imprecision -> +4step/heures
+		rotate(4,1);
+		ancienH++;
+	}
+}
+
+void timer_nominal(){
+	static uint32_t ancienTT=0;	//ancien t timer
+	static uint16_t ancienMT=0;	//ancien Minutes timer
+	while(t<t_timerF){
+		if((t-t_timer)/1000>ancienTT){
+			rotate(4,0);
+			affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+			ancienTT++;
+		}
+		if((t-t_timer)/60000>ancienMT){	//rajout step car imprecision -> +4step/heures
+			rotate(32,0);
+			ancienMT++;
+		}
+	}
+}
 
 
 void EXTI15_10_IRQHandler(){
 	//Acquittement du flag d'interruption
 	__HAL_GPIO_EXTI_CLEAR_IT(BLUE_BUTTON_PIN);
 	//code de l'utilisateur...ici un clignotement de la LED verte.
-	if(readButton_D()){
+	if(readButton_D()==0){
 		etat = PARAM_TIMER;
 	}
-	else if(readButton_G()){
+	else if(readButton_G()==0){
 		etat = PARAM_CLOCK;
 	}
 }
@@ -222,19 +272,21 @@ uint32_t param(bool_e clock){
   		if(!min_sec){//selection minutes
   			minutes = lecture_pot(clock);
   			bouton_g = readButton_G();
-  			if(bouton_g != ancien_bouton_g && bouton_g==1){	//si on appuie sur le bouton gauche
+  			if(bouton_g != ancien_bouton_g && bouton_g==0){	//si on appuie sur le bouton gauche
   				min_sec = 1;
   				ancien_bouton_g = bouton_g;
   			}
   		}
   		else{
   			secondes = lecture_pot(0);
-  			if(bouton_g != ancien_bouton_g && bouton_g==1){	//si on appuie sur le bouton gauche
+  			bouton_g = readButton_G();
+  			if(bouton_g != ancien_bouton_g && bouton_g==0){	//si on appuie sur le bouton gauche
   				min_sec = 0;
   				ancien_bouton_g = bouton_g;
   			}
   		}
-  		if(bouton_d != ancien_bouton_d && bouton_d==1){	//si on appuie sur le bouton droit
+		bouton_d = readButton_D();
+  		if(bouton_d != ancien_bouton_d && bouton_d==0){	//si on appuie sur le bouton droit
   			fini = 1;
   		}
   		ancien_bouton_g = bouton_g;
@@ -242,32 +294,47 @@ uint32_t param(bool_e clock){
   		//affichage selection minutes et secondes
  		affiche_digit(minutes, secondes);
  	}
+
 	uint32_t ms=0;
-  	if(clock){		//si parametre horloge : heures + minutes
-  		ms = ((minutes*60*60) + (secondes*60))*1000;
-  	}
-  	else{			//sinon timer = minutes + secondes
-  		ms = ((minutes*60)+secondes)*1000;
-  	}
+  	ms = ((minutes*60*60) + (secondes*60))*1000;
   	ms = (ms>0)? ms : -ms;
 
   	go_to(ms,clock);
-
+  	if(clock){
+  		h=minutes;
+  		m=secondes;
+  	}
+  	if(!clock){
+  		t_timer = t;
+  	}
   	return ms;		//retourne le nb de ms à mettre à l'horloge
   }
 
 
 //prend ms en entrée et positionne l'heure mécanique à la bonne position
 //temps -> position(=nb de step a faire)
-void go_to(uint32_t ms, bool_e clock){
-	uint32_t step = STEPS_PER_ROTATION * ms / MILLIS_PER_MIN / RATIO;
-	rotate(step,clock);
+void go_to(uint32_t ms,bool_e clock){
+	uint32_t step = STEPS_PER_ROTATION * ms / MILLIS_PER_MIN / RATIO;		//avec ms/min=60000, on a 196608 steps(=positions) toutes les 12h
+	if(step>196608){
+		step-=196608;
+		am=0;
+	}
+	else{
+		am=1;
+	}
+	if(clock){
+		step+=step/109;		//on rajoute le nombre de pas qu'on a perdu pour arriver à ce pas là
+	}
+	if(!clock){
+		t_timerF=t+ms/109+ms;
+	}
+	rotate(step-position,1);
 }
 
-void rotate(uint8_t step, bool_e clock){
+void rotate(uint32_t step, bool_e clock){
 	static uint8_t phase = 0;
 	uint8_t i;
-	uint8_t j;                         //i,j for loops
+	uint32_t j;                         //i,j for loops
 	uint8_t delta = (step > 0) ? 1 : 7;   //?
 
 	step = (step > 0) ? step : -step;   //step set to positive
@@ -303,11 +370,24 @@ void affiche_digit(uint8_t x, uint8_t y){
   	texte[0] = char2segments(x/10+'0');
   	texte[1] = char2segments(x%10+'0');
   	texte[2] = char2segments(y/10+'0');
-  	texte[3] = char2segments(y/10+'0');
+  	texte[3] = char2segments(y%10+'0');
   	tm1637_DisplayHandle(7, texte);
 }
 
-
+void affiche_debug(void){
+	uint8_t texte[4];
+  	texte[0] = char2segments('0');
+  	texte[1] = char2segments('0');
+  	texte[2] = char2segments('0');
+  	texte[3] = char2segments('0');
+  	tm1637_DisplayHandle(7, texte);
+  	HAL_Delay(300);
+  	texte[0] = char2segments('D');
+  	texte[1] = char2segments('B');
+  	texte[2] = char2segments('U');
+  	texte[3] = char2segments('G');
+  	tm1637_DisplayHandle(7, texte);
+}
 
 uint8_t lecture_pot(bool_e vq){
 	uint16_t valeur =0;
