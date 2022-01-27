@@ -1,23 +1,23 @@
-12:04:55 **** Incremental Build of configuration Debug for project project-f103 ****
+17:02:51 **** Incremental Build of configuration Debug for project project-f103 ****
 make -j4 all 
 arm-none-eabi-gcc "../appli/main.c" -mcpu=cortex-m3 -std=gnu11 -g3 -DSTM32F1 -DNUCLEO_F103RB -DSTM32F103RBTx -DSTM32 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F103xB -c -I../lib/bsp -I../lib//middleware/MIDI/ -I../lib/bsp/VL53L0X -I../lib/bsp/MPU6050 -I../lib/bsp/iks01a1 -I../lib/bsp/iks01a1/Common -I../lib/bsp/iks01a1/hts221 -I../lib/bsp/iks01a1/lis3mdl -I../lib/bsp/iks01a1/lps22hb -I../lib/bsp/iks01a1/lps25hb -I../lib/bsp/iks01a1/lsm6ds0 -I../lib/bsp/iks01a1/lsm6ds3 -I../lib/bsp/tft_ili9341 -I../lib/bsp/tft_pcd8544 -I../lib/bsp/MCP23S17 -I../lib/hal/inc -I../lib/bsp/Common -I../lib/bsp/lcd2x16 -I../lib/bsp/MLX90614 -I../lib/bsp/MatrixKeyboard -I../lib/bsp/MatrixLed -I../lib/CMSIS/core -I../lib/CMSIS/device -I../lib/middleware/FatFs -I../lib/middleware/FatFs/src -I../lib/middleware/FatFs/src/drivers -I../appli -O0 -ffunction-sections -fdata-sections -Wall -Wextra -Wconversion -fstack-usage -MMD -MP -MF"appli/main.d" -MT"appli/main.o"  -mfloat-abi=soft -mthumb -o "appli/main.o"
 ../appli/main.c: In function 'remise_heure':
-../appli/main.c:212:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
-  212 |  go_to(t+(m*60000)+(h*360000),1);
+../appli/main.c:215:19: warning: conversion to 'long unsigned int' from 'int' may change the sign of the result [-Wsign-conversion]
+  215 |  go_to(t+(m*60000)+(h*360000),1);
       |                   ^
 ../appli/main.c: In function 'clock_nominal':
-../appli/main.c:219:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
-  219 |  if(m>ancienM+1){
+../appli/main.c:221:6: warning: comparison of integer expressions of different signedness: 'uint32_t' {aka 'long unsigned int'} and 'int' [-Wsign-compare]
+  221 |  if(m>ancienM+1){
       |      ^
-../appli/main.c:221:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
-  221 |   affiche_digit(h,m);
+../appli/main.c:223:19: warning: conversion from 'uint32_t' {aka 'long unsigned int'} to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  223 |   affiche_digit(h,m);
       |                   ^
 ../appli/main.c: In function 'timer_nominal':
-../appli/main.c:236:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
-  236 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+../appli/main.c:246:29: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  246 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
       |                  ~~~~~~~~~~~^~~~~
-../appli/main.c:236:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
-  236 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
+../appli/main.c:246:46: warning: conversion from 'long unsigned int' to 'uint8_t' {aka 'unsigned char'} may change value [-Wconversion]
+  246 |    affiche_digit((t-t_timer)/1000,(t-t_timer)/60000);
       |                                   ~~~~~~~~~~~^~~~~~
 ../appli/main.c: In function 'param':
 ../appli/main.c:298:9: warning: conversion to 'uint32_t' {aka 'long unsigned int'} from 'int' may change the sign of the result [-Wsign-conversion]
@@ -56,7 +56,7 @@ arm-none-eabi-objdump -h -S  project-f103.elf  > "project-f103.list"
 arm-none-eabi-objcopy  -O binary  project-f103.elf  "project-f103.bin"
 arm-none-eabi-size   project-f103.elf 
    text	   data	    bss	    dec	    hex	filename
-  49984	   2668	   3176	  55828	   da14	project-f103.elf
+  49992	   2668	   3176	  55836	   da1c	project-f103.elf
 Finished building: default.size.stdout
  
 Finished building: project-f103.bin
@@ -64,5 +64,5 @@ Finished building: project-f103.bin
 Finished building: project-f103.list
  
 
-12:04:59 Build Finished. 0 errors, 14 warnings. (took 4s.281ms)
+17:02:56 Build Finished. 0 errors, 14 warnings. (took 4s.818ms)
 

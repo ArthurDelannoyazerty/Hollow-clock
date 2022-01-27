@@ -1,10 +1,9 @@
 core_cm3.h:1511:22:__NVIC_EnableIRQ	16	static
 main.c:100:13:process_ms	4	static
-main.c:119:7:main	16	static
-main.c:211:6:remise_heure	8	static
-main.c:215:6:clock_nominal	8	static
-main.c:230:6:timer_nominal	8	static
-main.c:247:6:EXTI15_10_IRQHandler	8	static
+main.c:121:5:main	16	static
+main.c:214:6:remise_heure	8	static
+main.c:218:6:clock_nominal	8	static
+main.c:240:6:timer_nominal	8	static
 main.c:259:10:param	48	static
 main.c:315:6:go_to	24	static
 main.c:333:6:rotate	32	static

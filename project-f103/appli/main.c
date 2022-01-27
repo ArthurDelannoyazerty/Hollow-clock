@@ -72,7 +72,7 @@ enum etats{
 };
 
   //initialisation
-enum etats etat=PARAM_CLOCK;
+static volatile enum etats etat=PARAM_CLOCK;
 enum etats nominal = CLOCK;
 
 uint32_t position = 0;
@@ -87,8 +87,8 @@ bool_e seq[8][4] = {
   		  { HIGH, HIGH,  LOW,  LOW},
   		  {  LOW, HIGH,  LOW,  LOW}
   		};
-uint16_t port_clock[4] = {PIN_1_MOTEUR, PIN_2_MOTEUR, PIN_3_MOTEUR, PIN_4_MOTEUR};
-uint16_t port_timer[4] = {PIN_4_MOTEUR, PIN_3_MOTEUR, PIN_2_MOTEUR, PIN_1_MOTEUR}; 	//tourne à l'envers
+uint16_t port_timer[4] = {PIN_1_MOTEUR, PIN_2_MOTEUR, PIN_3_MOTEUR, PIN_4_MOTEUR};
+uint16_t port_clock[4] = {PIN_4_MOTEUR, PIN_3_MOTEUR, PIN_2_MOTEUR, PIN_1_MOTEUR}; 	//tourne à l'envers
 
 
 static volatile uint16_t t=0;	//uint8_t max = 255 => on prend 16 bits pour aller jusqu'a 1000 = 1s
@@ -116,7 +116,9 @@ static void process_ms(void){
 	}
 }
 
-  int main(void){
+
+
+int main(void){
 	  /* USER CODE BEGIN 1 */
 	  //DP is connected to the second digit MSB
 	  tm1637_Segments[0] = A_SEG;
@@ -166,8 +168,8 @@ static void process_ms(void){
   	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_3_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
   	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_4_MOTEUR, GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
 
-  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_DROIT, GPIO_MODE_IT_FALLING,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
-  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_GAUCHE, GPIO_MODE_IT_FALLING,GPIO_NOPULL,GPIO_SPEED_FREQ_HIGH);
+  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_DROIT, GPIO_MODE_IT_RISING,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
+  	  BSP_GPIO_PinCfg(GPIO_MOTEUR, PIN_BOUTON_GAUCHE, GPIO_MODE_IT_RISING,GPIO_PULLUP,GPIO_SPEED_FREQ_HIGH);
 
 
   	  //fin init moteur
@@ -216,7 +218,6 @@ void remise_heure(void){
 void clock_nominal(){
 	static uint16_t ancienM=0;
 	static uint8_t ancienH=0;
-
 	if(m>ancienM+1){
 		rotate(273,1);
 		affiche_digit(h,m);
@@ -226,6 +227,14 @@ void clock_nominal(){
 		rotate(4,1);
 		ancienH++;
 	}
+
+	if(readButton_D()==0){	//si on appuie sur le bouton gauche
+		etat = PARAM_CLOCK;
+	}
+	if(readButton_G()==0){	//si on appuie sur le bouton gauche
+			etat = PARAM_TIMER;
+	}
+
 }
 
 void timer_nominal(){
@@ -245,17 +254,7 @@ void timer_nominal(){
 }
 
 
-void EXTI15_10_IRQHandler(){
-	//Acquittement du flag d'interruption
-	__HAL_GPIO_EXTI_CLEAR_IT(BLUE_BUTTON_PIN);
-	//code de l'utilisateur...ici un clignotement de la LED verte.
-	if(readButton_D()==0){
-		etat = PARAM_TIMER;
-	}
-	else if(readButton_G()==0){
-		etat = PARAM_CLOCK;
-	}
-}
+
 
 uint32_t param(bool_e clock){
 	uint8_t minutes  = 0;
@@ -314,21 +313,21 @@ uint32_t param(bool_e clock){
 //prend ms en entrée et positionne l'heure mécanique à la bonne position
 //temps -> position(=nb de step a faire)
 void go_to(uint32_t ms,bool_e clock){
-	uint32_t step = STEPS_PER_ROTATION * ms / MILLIS_PER_MIN / RATIO;		//avec ms/min=60000, on a 196608 steps(=positions) toutes les 12h
-	if(step>196608){
-		step-=196608;
-		am=0;
-	}
-	else{
-		am=1;
-	}
+	if((ms>43200000)){		//avec ms/min=60000, on a 196608 steps(=positions) toutes les 12h
+			ms-=43200000;
+			am=0;
+		}
+		else{
+			am=1;
+		}
+	uint32_t step = ((ms/1000)*STEPS_PER_ROTATION) / MILLIS_PER_MIN * 1000 / RATIO;
 	if(clock){
-		step+=step/109;		//on rajoute le nombre de pas qu'on a perdu pour arriver à ce pas là
+		//step+=step/109;		//on rajoute le nombre de pas qu'on a perdu pour arriver à ce pas là
 	}
 	if(!clock){
 		t_timerF=t+ms/109+ms;
 	}
-	rotate(step-position,1);
+	rotate(step,1);
 }
 
 void rotate(uint32_t step, bool_e clock){
